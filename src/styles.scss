@@ -1,1 +1,57 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+  overflow: hidden;
+}
+
+.snap-container {
+  @apply snap-y snap-mandatory overflow-y-scroll h-screen;
+}
+
+.snap-item {
+  @apply snap-start flex items-center justify-center text-white text-4xl;
+}
+
+/* SCSS pour la personnalisation de la scrollbar */
+::-webkit-scrollbar {
+  width: 6px; /* Largeur de la scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #55555500; /* Couleur de l'arrière-plan de la scrollbar */
+  border-radius: 10px; /* Bordure arrondie de la scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #24ff00; /* Couleur de la barre de défilement */
+  border-radius: 10px; /* Bordure arrondie de la barre de défilement */
+  border: 1px solid #55555500; /* Bordure autour de la barre de défilement */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #24ff00; /* Couleur de la barre de défilement au survol */
+}
+
+/* Pour les autres navigateurs */
+::-moz-scrollbar {
+  width: 12px; /* Largeur de la scrollbar */
+}
+
+::-moz-scrollbar-track {
+  background: #55555500; /* Couleur de l'arrière-plan de la scrollbar */
+  border-radius: 10px; /* Bordure arrondie de la scrollbar */
+}
+
+::-moz-scrollbar-thumb {
+  background-color: #24ff00; /* Couleur de la barre de défilement */
+  border-radius: 10px; /* Bordure arrondie de la barre de défilement */
+  border: 1px solid #55555500; /* Bordure autour de la barre de défilement */
+}
+
+::-moz-scrollbar-thumb:hover {
+  background-color: #55555500; /* Couleur de la barre de défilement au survol */
+}
