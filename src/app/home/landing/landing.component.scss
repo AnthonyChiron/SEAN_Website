@@ -1,0 +1,48 @@
+@keyframes pulse {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.5) rotate(20deg);
+  }
+  100% {
+    transform: scale(1.2) rotate(40deg);
+  }
+}
+
+@keyframes pulse2 {
+  0% {
+    transform: scale(1.2) rotate(0deg);
+  }
+  50% {
+    transform: scale(1) rotate(20deg);
+  }
+  100% {
+    transform: scale(1.4) rotate(10deg);
+  }
+}
+
+@keyframes directAnimation {
+  0% {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  100% {
+    background-color: #24ff00;
+    padding-left: 35px;
+    padding-right: 35px;
+    color: #242424;
+  }
+}
+
+.direct {
+  animation: directAnimation 1.5s 1s linear forwards;
+}
+
+.pulse {
+  animation: pulse 15s ease-in-out infinite alternate;
+}
+
+.pulse2 {
+  animation: pulse2 8s 0.5s ease-in-out infinite alternate;
+}

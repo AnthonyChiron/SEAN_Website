@@ -1,6 +1,41 @@
 <section
   id="section2"
-  class="h-screen w-screen flex items-center justify-center"
+  class="h-screen w-screen relative flex items-center justify-center"
 >
-  <h1 class="text-white text-5xl font-bold">Services</h1>
+  <div class="absolute z-50">
+    <img
+      class="h-[15rem] lg:h-[50rem] left-10"
+      src="../../../assets/Mac_mockup.png"
+      alt=""
+    />
+  </div>
+  <div class="absolute">
+    <img
+      class="purpleshadow absolute h-[15rem] lg:h-[5rem] w-auto right-16 bottom-20 -rotate-12"
+      [style]="{
+        right: scrollPercentage * 60 + 'rem',
+        bottom: scrollPercentage * 70 + 'rem'
+      }"
+      src="../../../assets/Twitch_logo.png"
+      alt=""
+    />
+    <img
+      class="blueshadow h-[15rem] lg:h-[5rem]"
+      [style]="{
+        left: scrollPercentage * 10 + '* exp(1) rem',
+        bottom: scrollPercentage * 70 + 'rem'
+      }"
+      src="../../../assets/Linkedin_logo.png"
+      alt=""
+    />
+    <img
+      class="redshadow absolute h-[15rem] lg:h-[4rem] w-[8rem] left-16 bottom-40 rotate-12"
+      [style]="{
+        left: 'calc(' + scrollPercentage * 60 + '* exp(10))rem',
+        bottom: scrollPercentage * 70 + 'rem'
+      }"
+      src="../../../assets/Youtube_logo.png"
+      alt=""
+    />
+  </div>
 </section>

@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-services',
   standalone: true,
   imports: [],
   templateUrl: './services.component.html',
-  styleUrl: './services.component.scss'
+  styleUrl: './services.component.scss',
 })
 export class ServicesComponent {
-
+  @Input() scrollPercentage: number = 0;
 }

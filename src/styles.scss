@@ -9,7 +9,7 @@ html {
 }
 
 .snap-container {
-  @apply snap-y snap-mandatory overflow-y-scroll h-screen;
+  @apply scroll-smooth snap-mandatory overflow-y-scroll h-screen;
 }
 
 .snap-item {
@@ -18,7 +18,7 @@ html {
 
 /* SCSS pour la personnalisation de la scrollbar */
 ::-webkit-scrollbar {
-  width: 6px; /* Largeur de la scrollbar */
+  width: 3px; /* Largeur de la scrollbar */
 }
 
 ::-webkit-scrollbar-track {
@@ -54,4 +54,8 @@ html {
 
 ::-moz-scrollbar-thumb:hover {
   background-color: #55555500; /* Couleur de la barre de défilement au survol */
+}
+
+.transition-all {
+  transition: all 0.3s;
 }
