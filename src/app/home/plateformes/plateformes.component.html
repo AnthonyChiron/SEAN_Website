@@ -1,0 +1,126 @@
+<section
+  id="section2"
+  class="h-screen w-screen relative flex items-center justify-center"
+>
+  <div
+    class="absolute top-64"
+    [style]="{
+    opacity: scrollPercentage * 8 - 1.2,
+  }"
+  >
+    <h2 class="text-4xl">Diffusez sur toutes vos plateformes...</h2>
+  </div>
+  <div class="absolute scale z-30">
+    <img
+      class="h-[15rem] lg:h-[50rem] shadow"
+      [style]="{
+          opacity: scrollPercentage * 8 - 0.5,
+        transform: 'translateY(' + scrollPercentage * 45 + 'rem)',
+      }"
+      src="../../../assets/Mac_mockup_V3.png"
+      alt=""
+    />
+  </div>
+  <div
+    class="absolute scale z-10"
+    [style]="{ left: scrollPercentage * -20 + 25 + 'rem' }"
+  >
+    <img
+      class="h-[15rem] lg:h-[30rem]"
+      [style]="{
+          opacity: scrollPercentage * 8 - 0.5,
+          transform: 'translateY(' + scrollPercentage * 40 + 'rem) rotate(' +  scrollPercentage * -35 + 'deg)',
+      }"
+      src="../../../assets/Ipad.png"
+      alt=""
+    />
+  </div>
+  <div
+    class="absolute scale z-10 right-80"
+    [style]="{ right: scrollPercentage * -25 + 30 + 'rem' }"
+  >
+    <img
+      class="h-[5rem] lg:h-[25rem] left-0"
+      [style]="{
+          opacity: scrollPercentage * 8 - 0.5,
+          transform: 'translateY(' + scrollPercentage * 40 + 'rem) rotate(' + scrollPercentage * 25 + 'deg)',
+      }"
+      src="../../../assets/iPhone 15.png"
+      alt=""
+    />
+  </div>
+  <div class="relative w-full h-full overflow-hidden">
+    <img
+      class="purpleshadow absolute h-[4rem] lg:h-[6rem] w-auto -rotate-3"
+      [style]="{
+        right: calculateTwitchRight(scrollPercentage) + 'px',
+        bottom: calculateTwitchBottom(scrollPercentage) + 'px'
+      }"
+      src="../../../assets/Twitch_logo.png"
+      alt=""
+    />
+    <img
+      class="blueshadow absolute h-[4rem] lg:h-[5rem] -rotate-12"
+      [style]="{
+        right: calculateLinkedinRight(scrollPercentage) + 'px',
+        bottom: calculateLinkedinBottom(scrollPercentage) + 'px'
+      }"
+      src="../../../assets/Linkedin_logo.png"
+      alt=""
+    />
+    <img
+      class="redshadow absolute h-[3rem] w-[4rem] lg:h-[4rem] lg:w-[6rem] rotate-12"
+      [style]="{
+        left: calculateYoutubeLeft(scrollPercentage) + 'px',
+        bottom: calculateYoutubeBottom(scrollPercentage) + 'px',
+      }"
+      src="../../../assets/Youtube_logo.png"
+      alt=""
+    />
+  </div>
+  <!-- <div
+    [style]="{
+    opacity: scrollPercentage * 8 - 2,
+    transform: 'translateY(' + scrollPercentage * 15 + 'rem)',
+  }"
+    class="absolute h-52 w-96 left-32 bottom-60"
+  >
+    <div class="flex flex-col items-center gap-4">
+      <img class="w-24 h-24" src="../../../assets/Icon_HD.svg" />
+      <h1 class="text-center font-extrablack">En haute qualité</h1>
+      <h3 class="text-center font-light text-xl">
+        Proposez à votre audience une expérience live en HD, avec une qualité
+        d'image et de son exceptionnelle. Chaque détail est net, chaque note est
+        claire, pour un rendu fidèle et immersif.
+      </h3>
+    </div>
+  </div>
+  <div
+    [style]="{
+  opacity: scrollPercentage * 8 - 2,
+  transform: 'translateY(' + scrollPercentage * 15 + 'rem)',
+}"
+    class="absolute h-52 w-96 right-32 bottom-60"
+  >
+    <div class="flex flex-col items-center gap-4">
+      <img class="w-24 h-24" src="../../../assets/Logo_Cible.svg" />
+      <h1 class="text-center font-extrablack">Personnalisation</h1>
+      <h3 class="text-center font-light text-xl">
+        Des lives personnalisés qui reflètent parfaitement votre événement et
+        votre entreprise. Chaque diffusion est unique, adaptée à vos besoins et
+        à votre identité.
+      </h3>
+    </div>
+  </div> -->
+  <!-- <div class="absolute top-52">
+    <h1
+      class="serviceTitle font-extrabold"
+      [style]="{
+        opacity: scrollPercentage * 7 - 1,
+        transform: 'translateY(' + scrollPercentage * 15 + 'rem)',
+      }"
+    >
+      Nos services <span class="text-primary">!</span>
+    </h1>
+  </div> -->
+</section>

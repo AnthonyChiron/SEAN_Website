@@ -1,0 +1,21 @@
+.redshadow {
+  -webkit-filter: drop-shadow(0px 0px 60px red);
+}
+
+.blueshadow {
+  -webkit-filter: drop-shadow(0px 0px 60px rgb(25, 194, 255));
+}
+
+.purpleshadow {
+  -webkit-filter: drop-shadow(0px 0px 60px rgb(170, 14, 255));
+}
+
+.shadow {
+  -webkit-filter: drop-shadow(0px 60px 100px rgba(0, 0, 0, 1));
+}
+
+.serviceTitle {
+  font-size: 5rem;
+  font-weight: bold;
+  color: white;
+}

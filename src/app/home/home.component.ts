@@ -9,7 +9,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { LandingComponent } from './landing/landing.component';
-import { ServicesComponent } from './services/services.component';
+import { PlateformesComponent } from './plateformes/plateformes.component';
 import { ProjetsComponent } from './projets/projets.component';
 import { ContactComponent } from './contact/contact.component';
 
@@ -18,7 +18,7 @@ import { ContactComponent } from './contact/contact.component';
   standalone: true,
   imports: [
     LandingComponent,
-    ServicesComponent,
+    PlateformesComponent,
     ProjetsComponent,
     ContactComponent,
   ],

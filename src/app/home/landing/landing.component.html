@@ -1,11 +1,14 @@
-<section id="section1" class="h-screen flex items-center justify-center">
+<section
+  id="section1"
+  class="h-screen flex items-center justify-center overflow-hidden"
+>
   <div class="flex items-center justify-center">
     <div
-      class="position-absolute"
+      class="position-absolute scale"
       [style]="{
-        opacity: 1 - scrollPercentage * 6,
-        transform: 'translateY(' + scrollPercentage * 1500 + '%)',
-        filter: 'blur(' + scrollPercentage * 50 + 'px)',
+        opacity: 1 - scrollPercentage * 5,
+        transform: 'translateY(' + scrollPercentage * 1200 + '%)',
+        filter: 'blur(' + scrollPercentage * 30 + 'px)',
       }"
     >
       <h1

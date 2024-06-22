@@ -24,19 +24,20 @@
 
 @keyframes directAnimation {
   0% {
-    padding-left: 0px;
-    padding-right: 0px;
+    height: 5rem;
+    width: 0px;
   }
   100% {
-    background-color: #24ff00;
-    padding-left: 35px;
-    padding-right: 35px;
+    height: 5rem;
+    width: 300px;
     color: #242424;
+    background-color: #24ff00;
   }
 }
 
 .direct {
-  animation: directAnimation 1.5s 1s linear forwards;
+  display: inline-block;
+  animation: directAnimation 0.4s 0.7s ease-in-out forwards;
 }
 
 .pulse {
