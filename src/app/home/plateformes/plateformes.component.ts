@@ -40,6 +40,7 @@ export class PlateformesComponent implements OnInit {
     const a = 15; // coefficient de l'effet exponentiel pour left
     const b = -400;
     const c = this.centerX;
+
     return a * Math.exp(8 * scrollPercentage) + b * scrollPercentage + c;
   }
 
@@ -65,5 +66,9 @@ export class PlateformesComponent implements OnInit {
     const b = 850;
     const c = 170;
     return a * Math.pow(scrollPercentage, 2) + b * scrollPercentage + c;
+  }
+
+  calculateBrightness(scrollPercentage: number): number {
+    return scrollPercentage * -100 + 120;
   }
 }
