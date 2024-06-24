@@ -26,4 +26,9 @@ import {
 })
 export class LandingComponent {
   @Input() scrollPercentage: number = 0;
+  @Input() isMobile: boolean = false;
+
+  calculateTranslateTextAnimation(): number {
+    return this.scrollPercentage * 1700;
+  }
 }

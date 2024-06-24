@@ -12,6 +12,7 @@ import { LandingComponent } from './landing/landing.component';
 import { PlateformesComponent } from './plateformes/plateformes.component';
 import { ProjetsComponent } from './projets/projets.component';
 import { ContactComponent } from './contact/contact.component';
+import { ScreenSizeService } from '../services/screen-size.service';
 
 @Component({
   selector: 'app-home',
@@ -27,12 +28,35 @@ import { ContactComponent } from './contact/contact.component';
 })
 export class HomeComponent implements OnInit, AfterViewInit {
   scrollPercentage: number = 0;
+  screenWidth: number = 0;
+  screenHeight: number = 0;
+  isMobile: boolean = false;
   @ViewChild('landing') landing!: ElementRef;
   ticking: boolean = false;
 
-  constructor(private ngZone: NgZone, private cd: ChangeDetectorRef) {}
+  constructor(
+    private ngZone: NgZone,
+    private cd: ChangeDetectorRef,
+    private screenSizeService: ScreenSizeService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.screenWidth = this.screenSizeService.getScreenWidth();
+    this.screenHeight = this.screenSizeService.getScreenHeight();
+    this.isMobile = this.screenSizeService.getIsMobile();
+
+    this.screenSizeService.screenWidth$.subscribe((width) => {
+      this.screenWidth = width;
+    });
+
+    this.screenSizeService.screenHeight$.subscribe((height) => {
+      this.screenHeight = height;
+    });
+
+    this.screenSizeService.isMobile$.subscribe((isMobile) => {
+      this.isMobile = isMobile;
+    });
+  }
 
   ngAfterViewInit(): void {
     if (this.landing) {
@@ -55,13 +79,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
           this.landing.nativeElement.scrollHeight -
           this.landing.nativeElement.clientHeight;
         this.scrollPercentage = scrollTop / scrollHeight;
-
-        console.log(
-          'Scroll event detected:',
-          scrollTop,
-          scrollHeight,
-          this.scrollPercentage
-        );
 
         this.landing.nativeElement.style.setProperty(
           '--scroll-opacity',

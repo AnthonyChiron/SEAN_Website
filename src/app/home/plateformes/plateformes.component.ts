@@ -1,4 +1,10 @@
-import { Component, AfterViewInit, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  AfterViewInit,
+  Input,
+  OnInit,
+  OnChanges,
+} from '@angular/core';
 
 @Component({
   selector: 'app-plateformes',
@@ -7,22 +13,38 @@ import { Component, AfterViewInit, Input, OnInit } from '@angular/core';
   templateUrl: './plateformes.component.html',
   styleUrl: './plateformes.component.scss',
 })
-export class PlateformesComponent implements OnInit {
+export class PlateformesComponent implements OnInit, OnChanges {
   @Input() scrollPercentage: number = 0;
+  @Input() screenWidth: number = 0;
+  @Input() screenHeight: number = 0;
+  @Input() isMobile: boolean = false;
   centerX: number = 0;
   centerY: number = 0;
+  animationRatioWidth: number = 0;
+  animationRatioHeight: number = 0;
 
   ngOnInit() {
-    if (typeof window !== 'undefined') {
-      this.centerX = window.innerWidth / 2 - 50; // 50 est la moitié de la largeur de l'image (100px / 2)
-      this.centerY = window.innerHeight / 2 - 50; // 50 est la moitié de la hauteur de l'image (100px / 2)
-    }
+    this.centerX = this.screenWidth / 2 - 50; // 50 est la moitié de la largeur de l'image (100px / 2)
+    this.centerY = this.screenHeight / 2 - 50; // 50 est la moitié de la hauteur de l'image (100px / 2)
+    this.animationRatioWidth = this.screenWidth / 1000;
+    this.animationRatioHeight = this.screenHeight / 1000;
+    console.log(this.animationRatioWidth);
+    console.log(this.animationRatioHeight);
+  }
+
+  ngOnChanges() {
+    this.centerX = this.screenWidth / 2 - 50; // 50 est la moitié de la largeur de l'image (100px / 2)
+    this.centerY = this.screenHeight / 2 - 50; // 50 est la moitié de la hauteur de l'image (100px / 2)
+    this.animationRatioWidth = this.screenWidth / 1000;
+    this.animationRatioHeight = this.screenHeight / 1000;
+    console.log(this.animationRatioWidth);
+    console.log(this.animationRatioHeight);
   }
 
   calculateYoutubeLeft(scrollPercentage: number): number {
     // Ajuster les coefficients a, b, c selon les besoins
     const a = 15; // coefficient de l'effet exponentiel pour left
-    const b = -400;
+    const b = -250;
     const c = this.centerX;
     return a * Math.exp(8 * scrollPercentage) + b * scrollPercentage + c;
   }
@@ -38,7 +60,7 @@ export class PlateformesComponent implements OnInit {
   calculateLinkedinRight(scrollPercentage: number): number {
     // Ajuster les coefficients a, b, c selon les besoins
     const a = 15; // coefficient de l'effet exponentiel pour left
-    const b = -400;
+    const b = -300;
     const c = this.centerX;
 
     return a * Math.exp(8 * scrollPercentage) + b * scrollPercentage + c;
@@ -69,6 +91,6 @@ export class PlateformesComponent implements OnInit {
   }
 
   calculateBrightness(scrollPercentage: number): number {
-    return scrollPercentage * -100 + 120;
+    return scrollPercentage * -100 + 140;
   }
 }

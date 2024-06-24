@@ -1,11 +1,15 @@
 <div id="landing" class="snap-container" #landing>
   <app-landing
     [scrollPercentage]="scrollPercentage"
+    [isMobile]="isMobile"
     class="snap-item"
     id="home"
   ></app-landing>
   <app-plateformes
     [scrollPercentage]="scrollPercentage"
+    [isMobile]="isMobile"
+    [screenHeight]="screenHeight"
+    [screenWidth]="screenWidth"
     class="snap-item"
     id="services"
   ></app-plateformes>

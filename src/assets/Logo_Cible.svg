@@ -1,6 +1,9 @@
 <svg width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="250" cy="250" r="165" stroke="white" stroke-width="22"/>
-<circle cx="250" cy="250" r="111" stroke="white" stroke-width="22"/>
-<circle cx="250" cy="250" r="58" stroke="white" stroke-width="22"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M250.81 258.363C252.803 250.928 245.999 244.124 238.563 246.116L152.452 269.189C145.017 271.182 142.526 280.476 147.969 285.92L156.624 294.574C160.529 298.479 160.529 304.811 156.624 308.716L88.572 376.768C87.791 377.549 87.791 378.815 88.572 379.596L116.212 407.236C116.993 408.017 118.26 408.017 119.041 407.236L187.092 339.185C190.998 335.279 197.329 335.279 201.234 339.185L211.007 348.957C216.45 354.4 225.745 351.91 227.737 344.474L250.81 258.363Z" fill="#24FF00"/>
+<circle cx="250" cy="250" r="162" stroke="white" stroke-width="22"/>
+<circle cx="250" cy="250" r="109" stroke="white" stroke-width="22"/>
+<circle cx="250" cy="250" r="57" stroke="white" stroke-width="22"/>
+<circle cx="250" cy="250" r="21" fill="#24FF00"/>
+<path d="M250 250L411 89" stroke="#24FF00" stroke-width="15"/>
+<path d="M402 70.0001V96.9993L429 97L456 69.9999L429 70.0006V43L402 70.0001Z" fill="#24FF00" stroke="#24FF00"/>
+<path d="M436 36.736V62.9993L462.113 63L472 53.2643L445.887 53.265V27.0004L436 36.736Z" fill="#24FF00" stroke="#24FF00"/>
 </svg>

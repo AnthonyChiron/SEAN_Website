@@ -1,6 +1,9 @@
 <section
   id="section2"
   class="h-screen w-screen relative flex items-center justify-center"
+  [style]="{
+    filter: 'brightness(' + calculateBrightness(scrollPercentage) + '%)'
+  }"
 >
   <div
     class="absolute top-64"
@@ -12,35 +15,12 @@
       Diffusez sur toutes les plateformes<span class="text-primary">...</span>
     </h2>
   </div>
-  <div
-    class="absolute -bottom-64 z-50 h-52 w-[40rem] flex items-center justify-center"
-    [style]="{
-      opacity: scrollPercentage * 4 - 1,
-    }"
-  >
-    <h2 class="text-4xl z-10">
-      <span class="text-primary">...</span>et sur tous les appareils
-    </h2>
-    <div class="absolute blur-3xl bg-black opacity-50 h-full w-full"></div>
-  </div>
-  <!-- <div
-    class="absolute top-96 z-50 flex items-center justify-center"
-    [style]="{
-      opacity: scrollPercentage * 4 - 1,
-    }"
-  >
-    <h2 class="text-4xl z-10">
-      <span class="text-primary">...</span>et sur tous les appareils
-    </h2>
-  </div> -->
 
   <div class="absolute scale z-20">
     <img
-      class="h-[15rem] lg:h-[50rem]"
+      class="h-[15rem] lg:h-[40rem] xl:h-[50rem]"
       [style]="{
-        opacity: scrollPercentage * 8 - 0.5,
-        transform: 'translateY(' + scrollPercentage * 45 + 'rem)',
-        filter: 'brightness(' + calculateBrightness(scrollPercentage) + '%)'
+        transform: 'translateY(' + scrollPercentage * 85 * animationRatioHeight + '%)',
       }"
       src="../../../assets/Mac_mockup_V3.png"
       alt=""
@@ -48,19 +28,17 @@
   </div>
   <div
     class="absolute scale z-10"
-    [style]="{ left: scrollPercentage * -20 + 25 + 'rem' }"
+    [style]="{ left: scrollPercentage * -30 + 15 * animationRatioWidth + '%' }"
   >
     <img
-      class="h-[15rem] lg:h-[30rem]"
+      class="h-[15rem] lg:h-[20rem] xl:h-[30rem]"
       [style]="{
-        opacity: scrollPercentage * 8 - 0.5,
         transform:
           'translateY(' +
-          scrollPercentage * 40 +
-          'rem) rotate(' +
+          scrollPercentage * 140 * animationRatioHeight +
+          '%) rotate(' +
           scrollPercentage * -35 +
           'deg)',
-        filter: 'brightness(' + calculateBrightness(scrollPercentage) + '%)'
       }"
       src="../../../assets/Ipad.png"
       alt=""
@@ -68,19 +46,17 @@
   </div>
   <div
     class="absolute scale z-10 right-80"
-    [style]="{ right: scrollPercentage * -25 + 30 + 'rem' }"
+    [style]="{ right: scrollPercentage * -30 + 32 + '%' }"
   >
     <img
-      class="h-[5rem] lg:h-[25rem] left-0"
+      class="h-[5rem] lg:h-[15rem] xl:h-[20rem] left-0"
       [style]="{
-        opacity: scrollPercentage * 8 - 0.5,
         transform:
           'translateY(' +
-          scrollPercentage * 40 +
-          'rem) rotate(' +
+          scrollPercentage * 170 +
+          '%) rotate(' +
           scrollPercentage * 25 +
           'deg)',
-        filter: 'brightness(' + calculateBrightness(scrollPercentage) + '%)'
       }"
       src="../../../assets/iPhone 15.png"
       alt=""
@@ -88,29 +64,44 @@
   </div>
   <div class="relative w-full h-full overflow-hidden">
     <img
-      class="purpleshadow absolute h-[4rem] lg:h-[6rem] w-auto -rotate-3"
-      [style]="{
-        right: calculateTwitchRight(scrollPercentage) + 'px',
-        bottom: calculateTwitchBottom(scrollPercentage) + 'px'
-      }"
+      class="purpleshadow absolute h-[4rem] lg:h-[5rem] xl:h-[6rem] w-auto"
+      [style]="
+        isMobile
+          ? {}
+          : {
+              right: calculateTwitchRight(scrollPercentage) + 'px',
+              bottom: calculateTwitchBottom(scrollPercentage) + 'px',
+              transform: 'rotate(' + scrollPercentage * -20 + 'deg)'
+            }
+      "
       src="../../../assets/Twitch_logo.png"
       alt=""
     />
     <img
-      class="blueshadow absolute h-[4rem] lg:h-[5rem] -rotate-12"
-      [style]="{
-        right: calculateLinkedinRight(scrollPercentage) + 'px',
-        bottom: calculateLinkedinBottom(scrollPercentage) + 'px'
-      }"
+      class="blueshadow absolute h-[4rem] lg:h-[4rem] xl:h-[5rem]"
+      [style]="
+        isMobile
+          ? {}
+          : {
+              right: calculateLinkedinRight(scrollPercentage) + 'px',
+              bottom: calculateLinkedinBottom(scrollPercentage) + 'px',
+              transform: 'rotate(' + scrollPercentage * -50 + 'deg)'
+            }
+      "
       src="../../../assets/Linkedin_logo.png"
       alt=""
     />
     <img
-      class="redshadow absolute h-[3rem] w-[4rem] lg:h-[4rem] lg:w-[6rem] rotate-12"
-      [style]="{
-        left: calculateYoutubeLeft(scrollPercentage) + 'px',
-        bottom: calculateYoutubeBottom(scrollPercentage) + 'px',
-      }"
+      class="redshadow absolute h-[3rem] w-[4rem] lg:h-[3rem] xl:h-[4rem] lg:w-[4.5rem] xl:w-[6rem]"
+      [style]="
+        isMobile
+          ? {}
+          : {
+              left: calculateYoutubeLeft(scrollPercentage) + 'px',
+              bottom: calculateYoutubeBottom(scrollPercentage) + 'px',
+              transform: 'rotate(' + scrollPercentage * 50 + 'deg)'
+            }
+      "
       src="../../../assets/Youtube_logo.png"
       alt=""
     />
