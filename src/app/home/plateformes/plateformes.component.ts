@@ -18,6 +18,7 @@ export class PlateformesComponent implements OnInit, OnChanges {
   @Input() screenWidth: number = 0;
   @Input() screenHeight: number = 0;
   @Input() isMobile: boolean = false;
+  @Input() screenType: string = '';
   centerX: number = 0;
   centerY: number = 0;
   animationRatioWidth: number = 0;
@@ -28,8 +29,6 @@ export class PlateformesComponent implements OnInit, OnChanges {
     this.centerY = this.screenHeight / 2 - 50; // 50 est la moitié de la hauteur de l'image (100px / 2)
     this.animationRatioWidth = this.screenWidth / 1000;
     this.animationRatioHeight = this.screenHeight / 1000;
-    console.log(this.animationRatioWidth);
-    console.log(this.animationRatioHeight);
   }
 
   ngOnChanges() {
@@ -37,56 +36,54 @@ export class PlateformesComponent implements OnInit, OnChanges {
     this.centerY = this.screenHeight / 2 - 50; // 50 est la moitié de la hauteur de l'image (100px / 2)
     this.animationRatioWidth = this.screenWidth / 1000;
     this.animationRatioHeight = this.screenHeight / 1000;
-    console.log(this.animationRatioWidth);
-    console.log(this.animationRatioHeight);
   }
 
   calculateYoutubeLeft(scrollPercentage: number): number {
     // Ajuster les coefficients a, b, c selon les besoins
-    const a = 15; // coefficient de l'effet exponentiel pour left
-    const b = -250;
-    const c = this.centerX;
-    return a * Math.exp(8 * scrollPercentage) + b * scrollPercentage + c;
-  }
+    const a = 8 * this.animationRatioWidth; // coefficient de l'effet exponentiel pour left
+    const b = 0;
+    const c = this.centerX + 50;
+    let d = 0;
 
-  calculateYoutubeBottom(scrollPercentage: number): number {
-    // Ajuster les coefficients a, b, c selon les besoins
-    const a = 100; // coefficient de l'effet parabolique pour bottom
-    const b = 750;
-    const c = 220;
-    return a * Math.pow(scrollPercentage, 2) + b * scrollPercentage + c;
+    return a * Math.exp(8 * scrollPercentage) + b * scrollPercentage + c + d;
   }
 
   calculateLinkedinRight(scrollPercentage: number): number {
     // Ajuster les coefficients a, b, c selon les besoins
-    const a = 15; // coefficient de l'effet exponentiel pour left
-    const b = -300;
-    const c = this.centerX;
+    const a = 8 * this.animationRatioWidth; // coefficient de l'effet exponentiel pour left
+    const b = 0;
+    const c = this.centerX + 50;
 
     return a * Math.exp(8 * scrollPercentage) + b * scrollPercentage + c;
-  }
-
-  calculateLinkedinBottom(scrollPercentage: number): number {
-    // Ajuster les coefficients a, b, c selon les besoins
-    const a = 0.5; // coefficient de l'effet parabolique pour bottom
-    const b = 900;
-    const c = 170;
-    return a * Math.pow(scrollPercentage, 2) + b * scrollPercentage + c;
   }
 
   calculateTwitchRight(scrollPercentage: number): number {
     // Ajuster les coefficients a, b, c selon les besoins
-    const a = 2.5; // coefficient de l'effet exponentiel pour left
+    const a = 1.2 * this.animationRatioWidth; // coefficient de l'effet exponentiel pour left
     const b = -200;
-    const c = this.centerX + 30;
+    let c = this.centerX;
+
+    switch (this.screenType) {
+      default:
+        c += 20;
+        break;
+      case 'lg':
+        c += 50;
+        break;
+      case 'xl':
+        c += 35;
+        break;
+    }
+
+    console.log('Screen type : ' + this.screenType);
     return a * Math.exp(8 * scrollPercentage) + b * scrollPercentage + c;
   }
 
-  calculateTwitchBottom(scrollPercentage: number): number {
+  calculateIconBottom(scrollPercentage: number): number {
     // Ajuster les coefficients a, b, c selon les besoins
-    const a = 100; // coefficient de l'effet parabolique pour bottom
-    const b = 850;
-    const c = 170;
+    const a = -200 * this.animationRatioHeight; // coefficient de l'effet parabolique pour bottom
+    const b = 750;
+    const c = 500;
     return a * Math.pow(scrollPercentage, 2) + b * scrollPercentage + c;
   }
 

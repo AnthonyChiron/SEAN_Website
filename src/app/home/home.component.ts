@@ -31,6 +31,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   screenWidth: number = 0;
   screenHeight: number = 0;
   isMobile: boolean = false;
+  screenType: string = '';
   @ViewChild('landing') landing!: ElementRef;
   ticking: boolean = false;
 
@@ -44,6 +45,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.screenWidth = this.screenSizeService.getScreenWidth();
     this.screenHeight = this.screenSizeService.getScreenHeight();
     this.isMobile = this.screenSizeService.getIsMobile();
+    this.screenType = this.screenSizeService.getScreenType();
 
     this.screenSizeService.screenWidth$.subscribe((width) => {
       this.screenWidth = width;
@@ -55,6 +57,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
     this.screenSizeService.isMobile$.subscribe((isMobile) => {
       this.isMobile = isMobile;
+    });
+
+    this.screenSizeService.screenType$.subscribe((screenType) => {
+      this.screenType = screenType;
     });
   }
 
