@@ -1,6 +1,6 @@
 <section
   id="section2"
-  class="w-screen relative flex items-center justify-center overflow-hidden"
+  class="w-full h-screen relative flex items-center justify-center"
   [style]="{
     filter: 'brightness(' + calculateBrightness(scrollPercentage) + '%)'
   }"
@@ -9,7 +9,7 @@
     class="absolute top-14 z-10"
     [style]="{
               opacity: scrollPercentage * 8 - 1.2,
-              transform: 'translateY(' + scrollPercentage * 20 + '%)',
+              transform: 'translateY(' + scrollPercentage * 405 + '%)',
             }"
   >
     <h2 class="text-2xl p-5 text-center xl:text-4xl">
@@ -17,9 +17,9 @@
     </h2>
   </div>
 
-  <div class="absolute h-full scale z-20">
+  <div class="absolute scale z-20">
     <img
-      class="max-w-max h-[40rem] lg:h-[40rem] xl:h-[50rem]"
+      class="max-w-max h-[20rem] lg:h-[40rem] xl:h-[50rem]"
       [style]="isMobile
       ? {}
       : {
@@ -32,9 +32,7 @@
   <div
     class="absolute scale z-10"
     [style]="
-      isMobile
-        ? {}
-        : { left: scrollPercentage * -30 + 15 * animationRatioWidth + '%' }
+      isMobile ? {} : { left: calculateBgDevices(scrollPercentage) + '%' }
     "
   >
     <img
@@ -44,7 +42,7 @@
       : {
         transform:
           'translateY(' +
-          scrollPercentage * 35 * animationRatioHeight +
+          scrollPercentage * 60 * animationRatioHeight +
           '%) rotate(' +
           scrollPercentage * -35 +
           'deg)',
@@ -56,20 +54,18 @@
   <div
     class="absolute scale z-10 right-80"
     [style]="
-      isMobile
-        ? {}
-        : { right: scrollPercentage * -30 + 17 * animationRatioWidth + '%' }
+      isMobile ? {} : { right: calculateBgDevices(scrollPercentage) + '%' }
     "
   >
     <img
-      class="h-[5rem] lg:h-[15rem] xl:h-[20rem] left-0 brightness-90"
+      class="h-[15rem] lg:h-[15rem] xl:h-[20rem] left-0 brightness-90"
       [style]="
         isMobile
           ? {}
           : {
               transform:
                 'translateY(' +
-                scrollPercentage * 40 * animationRatioHeight +
+                scrollPercentage * 80 * animationRatioHeight +
                 '%) rotate(' +
                 scrollPercentage * 35 +
                 'deg)',
@@ -84,15 +80,15 @@
       alt=""
     />
   </div>
-  <div class="relative h-screen w-screen overflow-hidden">
+  <div class="h-screen w-screen">
     <img
-      class="purpleshadow absolute right-[45%] bottom-[80%] -rotate-3 h-[3.5rem] lg:h-[5rem] xl:h-[6rem] w-auto"
+      class="purpleshadow absolute right-[45%] bottom-[80%] -rotate-3 h-[4rem] lg:h-[4.5rem] xl:h-[6rem] w-auto"
       [style]="
         isMobile
           ? {}
           : {
-              right: calculateTwitchRight(scrollPercentage) + 'px',
-              bottom: calculateIconBottom(scrollPercentage) + 'px',
+              right: calculateTwitchRight(scrollPercentage) + '%',
+              bottom: calculateIconBottom(scrollPercentage) + '%',
               transform: 'rotate(' + scrollPercentage * -20 + 'deg)'
             }
       "
@@ -105,8 +101,8 @@
         isMobile
           ? {}
           : {
-              right: calculateLinkedinRight(scrollPercentage) + 'px',
-              bottom: calculateIconBottom(scrollPercentage) + 'px',
+              right: calculateLinkedinRight(scrollPercentage) + '%',
+              bottom: calculateIconBottom(scrollPercentage) + '%',
               transform: 'rotate(' + scrollPercentage * -50 + 'deg)'
             }
       "
@@ -119,8 +115,8 @@
         isMobile
           ? {}
           : {
-              left: calculateYoutubeLeft(scrollPercentage) + 'px',
-              bottom: calculateIconBottom(scrollPercentage) + 'px',
+              left: calculateYoutubeLeft(scrollPercentage) + '%',
+              bottom: calculateIconBottom(scrollPercentage) + '%',
               transform: 'rotate(' + scrollPercentage * 50 + 'deg)'
             }
       "

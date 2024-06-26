@@ -7,13 +7,13 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-plateformes',
+  selector: 'live-plateformes',
   standalone: true,
   imports: [],
-  templateUrl: './plateformes.component.html',
-  styleUrl: './plateformes.component.scss',
+  templateUrl: './live-plateformes.component.html',
+  styleUrl: './live-plateformes.component.scss',
 })
-export class PlateformesComponent implements OnInit, OnChanges {
+export class LivePlateformesComponent implements OnInit, OnChanges {
   @Input() scrollPercentage: number = 0;
   @Input() screenWidth: number = 0;
   @Input() screenHeight: number = 0;
@@ -40,54 +40,72 @@ export class PlateformesComponent implements OnInit, OnChanges {
 
   calculateYoutubeLeft(scrollPercentage: number): number {
     // Ajuster les coefficients a, b, c selon les besoins
-    const a = 8 * this.animationRatioWidth; // coefficient de l'effet exponentiel pour left
+    const a = 1.2 * this.animationRatioWidth; // coefficient de l'effet exponentiel pour left
     const b = 0;
-    const c = this.centerX + 50;
-    let d = 0;
+    const c = 49;
 
-    return a * Math.exp(8 * scrollPercentage) + b * scrollPercentage + c + d;
+    if (a * Math.exp(5 * scrollPercentage) + b * scrollPercentage + c < 90)
+      return a * Math.exp(5 * scrollPercentage) + b * scrollPercentage + c;
+    else return 90;
   }
 
   calculateLinkedinRight(scrollPercentage: number): number {
     // Ajuster les coefficients a, b, c selon les besoins
-    const a = 8 * this.animationRatioWidth; // coefficient de l'effet exponentiel pour left
+    const a = 1.2 * this.animationRatioWidth; // coefficient de l'effet exponentiel pour left
     const b = 0;
-    const c = this.centerX + 50;
+    const c = 49;
 
-    return a * Math.exp(8 * scrollPercentage) + b * scrollPercentage + c;
+    if (a * Math.exp(5 * scrollPercentage) + b * scrollPercentage + c < 90)
+      return a * Math.exp(5 * scrollPercentage) + b * scrollPercentage + c;
+    else return 90;
   }
 
   calculateTwitchRight(scrollPercentage: number): number {
     // Ajuster les coefficients a, b, c selon les besoins
-    const a = 1.2 * this.animationRatioWidth; // coefficient de l'effet exponentiel pour left
-    const b = -200;
-    let c = this.centerX;
+    const a = 1.005 * this.animationRatioWidth; // coefficient de l'effet exponentiel pour left
+    const b = 0;
+    let c = 44.5;
 
     switch (this.screenType) {
-      default:
-        c += 20;
+      case 'md':
+        c = 44.5;
         break;
       case 'lg':
-        c += 50;
+        c = 45.2;
         break;
       case 'xl':
-        c += 35;
+        c = 44.5;
         break;
     }
 
-    console.log('Screen type : ' + this.screenType);
-    return a * Math.exp(8 * scrollPercentage) + b * scrollPercentage + c;
+    return a * Math.exp(2 * scrollPercentage) + b * scrollPercentage + c;
   }
 
   calculateIconBottom(scrollPercentage: number): number {
     // Ajuster les coefficients a, b, c selon les besoins
-    const a = -200 * this.animationRatioHeight; // coefficient de l'effet parabolique pour bottom
-    const b = 750;
-    const c = 500;
+    const a = -25 * this.animationRatioHeight; // coefficient de l'effet parabolique pour bottom
+    const b = 10;
+    const c = 60;
+    console.log(
+      Math.round(a * Math.pow(scrollPercentage, 2) + b * scrollPercentage + c)
+    );
     return a * Math.pow(scrollPercentage, 2) + b * scrollPercentage + c;
   }
 
   calculateBrightness(scrollPercentage: number): number {
-    return scrollPercentage * -100 + 140;
+    return scrollPercentage * -100 + 150;
+  }
+
+  calculateBgDevices(scrollPercentage: number): number {
+    console.log(
+      'scrollPercentage : ' +
+        (scrollPercentage * -30 + 15 * this.animationRatioWidth)
+    );
+    if (
+      scrollPercentage * -30 + 15 * this.animationRatioWidth >
+      5 * this.animationRatioWidth
+    )
+      return scrollPercentage * -30 + 15 * this.animationRatioWidth;
+    else return 5 * this.animationRatioWidth;
   }
 }

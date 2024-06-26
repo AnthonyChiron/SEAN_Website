@@ -1,12 +1,12 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-projets',
+  selector: 'live-plus',
   standalone: true,
   imports: [],
-  templateUrl: './projets.component.html',
-  styleUrl: './projets.component.scss',
+  templateUrl: './plus.component.html',
+  styleUrl: './plus.component.scss',
 })
-export class ProjetsComponent {
+export class LivePlusComponent {
   @Input() scrollPercentage: number = 0;
 }

@@ -15,11 +15,11 @@ html {
 }
 
 .snap-container {
-  @apply scroll-smooth snap-mandatory overflow-y-scroll h-screen;
+  @apply scroll-smooth snap-mandatory  h-screen flex;
 }
 
 .snap-item {
-  @apply snap-start flex items-center justify-center text-white text-4xl;
+  @apply snap-start flex-shrink-0 w-screen text-white text-4xl relative;
 }
 
 /* SCSS pour la personnalisation de la scrollbar */

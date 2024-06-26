@@ -8,25 +8,19 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { LandingComponent } from './landing/landing.component';
-import { PlateformesComponent } from './plateformes/plateformes.component';
-import { ProjetsComponent } from './projets/projets.component';
-import { ContactComponent } from './contact/contact.component';
+import { LivePlateformesComponent } from './plateformes/live-plateformes.component';
+import { LivePlusComponent } from './plus/plus.component';
 import { ScreenSizeService } from '../services/screen-size.service';
+import { LiveLandingComponent } from './landing/lve-landing.component';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-live',
   standalone: true,
-  imports: [
-    LandingComponent,
-    PlateformesComponent,
-    ProjetsComponent,
-    ContactComponent,
-  ],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
+  imports: [LivePlateformesComponent, LivePlusComponent, LiveLandingComponent],
+  templateUrl: './live.component.html',
+  styleUrl: './live.component.scss',
 })
-export class HomeComponent implements OnInit, AfterViewInit {
+export class LiveComponent implements OnInit, AfterViewInit {
   scrollPercentage: number = 0;
   screenWidth: number = 0;
   screenHeight: number = 0;

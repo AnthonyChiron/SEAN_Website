@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PlateformesComponent } from './plateformes.component';
+import { PlateformesComponent } from './live-plateformes.component';
 
 describe('ServicesComponent', () => {
   let component: PlateformesComponent;

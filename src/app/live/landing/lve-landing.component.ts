@@ -17,14 +17,14 @@ import {
 } from '@angular/animations';
 
 @Component({
-  selector: 'app-landing',
+  selector: 'live-landing',
   standalone: true,
   imports: [ParallaxStandaloneDirective],
-  templateUrl: './landing.component.html',
-  styleUrl: './landing.component.scss',
+  templateUrl: './live-landing.component.html',
+  styleUrl: './live-landing.component.scss',
   animations: [],
 })
-export class LandingComponent {
+export class LiveLandingComponent {
   @Input() scrollPercentage: number = 0;
   @Input() isMobile: boolean = false;
 
